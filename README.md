@@ -17,7 +17,11 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 * Clock Speed(MAX) : 72MHz
 * Package : LQFP 48 pin
 
-###   
+### Temperature Senser
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/ds18b20.png" width="300px" height="300px"></a> 
+### FND
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="300px" height="300px"></a> 
+### OLED
 
 
 ### 코드리뷰!
