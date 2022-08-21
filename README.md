@@ -22,7 +22,7 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 ### FND
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/fnd.png" width="300px" height="300px"></a> 
 ### OLED
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/sdd1306.png" width="300px" height="300px"></a> 
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/ssd1306.png" width="300px" height="300px"></a> 
 
 ### 코드리뷰!
 
