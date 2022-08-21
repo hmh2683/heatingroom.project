@@ -28,7 +28,7 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 * Voltage : 3.3V-5V
 * LED Driver : 74HC595
 
-### OLED                                                                                           ###BUTTON
+### OLED                                                                                           
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/ssd1306.png" width="300px" height="300px"></a> 
 * Driver Chip : SSD1306
 * Voltage : 3.3V-5V
