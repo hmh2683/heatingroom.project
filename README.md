@@ -7,7 +7,9 @@
 STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모듈에 표시한다.  
 3개의 버튼과 OLED 모듈을 통해 설정온도를 선택하고, RELAY SW의 상태정보를 OLED 모듈을 통해 표시한다.  
 설정온도와 현재온도를 비교하여 RELAY SW를 제어하고 설정온도를 유지하고 관리한다.  
-
+  
+  
+  
 ## MCU 정보
 ### Microcontroller
 * Part : STM32F103C8T6
