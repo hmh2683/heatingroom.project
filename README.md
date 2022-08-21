@@ -9,7 +9,7 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 설정온도와 현재온도를 비교하여 RELAY SW를 제어하고 설정온도를 유지하고 관리한다.  
   
 ## Hardware
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="500px" height="500px" align="right" alt="sample image"></a> 
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="300px" height="300px" align="right" alt="sample image"></a> 
 ### Microcontroller
 * Part : STM32F103C8T6
 * Manufacturer : ST-Microelectronics
