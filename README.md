@@ -10,4 +10,4 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 
 ## 하드웨어 부품선정
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/KakaoTalk_20220820_213332997.jpg" width="400px" alt="sample image"></a> 
-![Github logo](/images/KakaoTalk_20220820_213332997.jpg) 
+
