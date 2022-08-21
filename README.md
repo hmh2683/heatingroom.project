@@ -9,3 +9,4 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 설정온도와 현재온도를 비교하여 RELAY SW를 제어하고 설정온도를 유지하고 관리한다.  
 
 ## 하드웨어 부품선정
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/images/KakaoTalk_20220820_213332997.jpg" width="400px" alt="sample image"></a> 
