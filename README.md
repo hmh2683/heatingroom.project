@@ -9,7 +9,7 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 설정온도와 현재온도를 비교하여 RELAY 를 제어하고 설정온도를 유지하고 관리한다.  
  
 ## Microcontroller
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="300px" height="300px"></a> 
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="400px" height="400px"></a> 
 * Part : STM32F103C8T6
 * Manufacturer : ST-Microelectronics
 * Core : Arm Cortex-M3
@@ -17,8 +17,9 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 * Package : LQFP 48 pin
 
 ## Pinout & Configuration
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/pin.png" width="400px" height="400px"></a> 
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="400px" height="200px"></a> 
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/pin.png" width="400px" height="400px"></a>
+
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="600px" height="400px"></a> 
 ### System Core
 * GPIO -> INPUT -> PB0_TEMP_UP, PB1_TEMP_SET, PB2_TEMP_DOWN, PB12_START_SW
 * GPIO -> OUTPUT -> PA3_TEMP_DATA, PB5_RELAY, PB6_BUTTON_LED, PB7_START_LED, PB14_FND_RCLK
