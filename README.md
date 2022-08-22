@@ -18,8 +18,6 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 
 ## Pinout & Configuration
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/pin.png" width="400px" height="400px"></a>
-
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="600px" height="400px"></a> 
 ### System Core
 * GPIO -> INPUT -> PB0_TEMP_UP, PB1_TEMP_SET, PB2_TEMP_DOWN, PB12_START_SW
 * GPIO -> OUTPUT -> PA3_TEMP_DATA, PB5_RELAY, PB6_BUTTON_LED, PB7_START_LED, PB14_FND_RCLK
@@ -47,6 +45,8 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 * USART1
   * Baud Rate : 115200 Bits/s
   * Word Length : 8 Bit
+### Clock
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/pin.png" width="400px" height="400px"></a> 
 
 ## Code
 ### Communication 
