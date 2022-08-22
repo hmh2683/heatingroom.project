@@ -5,10 +5,9 @@
 * 개발언어 : C
 * 개발목표  
 STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모듈에 표시한다.  
-3개의 버튼과 OLED 모듈을 통해 설정온도를 선택하고, RELAY SW의 상태정보를 OLED 모듈을 통해 표시한다.  
-설정온도와 현재온도를 비교하여 RELAY SW를 제어하고 설정온도를 유지하고 관리한다.  
-  
-## Hardware
+3개의 버튼과 OLED 모듈을 통해 설정온도를 선택하고, RELAY 의 상태정보를 OLED 모듈을 통해 표시한다.  
+설정온도와 현재온도를 비교하여 RELAY 를 제어하고 설정온도를 유지하고 관리한다.  
+ 
 ### Microcontroller
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="300px" height="300px"></a> 
 * Part : STM32F103C8T6
@@ -17,12 +16,15 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 * Clock Speed(MAX) : 72MHz
 * Package : LQFP 48 pin
 
-### Temperature Senser
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/ds18b20.png" width="300px" height="300px"></a> 
-### FND
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/fnd.png" width="300px" height="300px"></a> 
-### OLED
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/sdd1306.png" width="300px" height="300px"></a> 
+### Pin Setting
+
+
+
+### Communication 
+* SPI 
+* I2C 
+* UART
+* ONEWIRE
 
 ### 코드리뷰!
 
