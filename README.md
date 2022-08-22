@@ -27,10 +27,24 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 * RCC -> PC14_RCC_OSC32_IN, PC15_RCC_OSC32_OUT, PD0_RCC_OSC_IN, PD1_RCC_OSC_OUT
 ### Timers
 * TIM2 -> Temperature sensor
-
+ * Prescaler : 71
+ * Counter Period : 65535
 * TIM3 -> FND
+ * Prescaler : 71
+ * Counter Period : 99
 ### Connectivity
-
+* SPI2
+  * Data Size : 8bit
+  * First Bit : MSB
+  * Prescaler : 16
+  * Clock Polarity : High
+  * Clock Phase : 1 Edge
+* I2C2
+  * Speed Mode : Fast Mode
+  * Clock Speed : 400000 Hz
+* USART1
+  * Baud Rate : 115200 Bits/s
+  * Word Length : 8 Bit
 
 ## Code
 ### Communication 
