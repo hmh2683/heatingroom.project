@@ -46,7 +46,7 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
   * Baud Rate : 115200 Bits/s
   * Word Length : 8 Bit
 ## Clock Configuration
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="800px" height="400px"></a> 
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="1000px" height="400px"></a> 
 
 ## Code
 ### Communication 
