@@ -21,12 +21,10 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 
 
 ### Communication 
-#### SPI 
-* SCK, MOSI, MISO, CS 4가지의 신호선이 필요하다.
-* 전이중 통신모드 동작한다.
-* I2C 통신보다 빠르다.  
-#### I2C
-#### ONEWIRE
+* SPI 
+* I2C 
+* UART
+* ONEWIRE
 
 ### 코드리뷰!
 
