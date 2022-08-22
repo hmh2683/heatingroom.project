@@ -25,7 +25,13 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 * I2C -> PB10_I2C2_SCL, PB11_I2C2_SDA
 * SYS -> PA13_JTMS-SWDIO, PA14_SYS_JTCK-SWCLK
 * RCC -> PC14_RCC_OSC32_IN, PC15_RCC_OSC32_OUT, PD0_RCC_OSC_IN, PD1_RCC_OSC_OUT
- 
+### Timers
+* TIM2 -> Temperature sensor
+
+* TIM3 -> FND
+### Connectivity
+
+
 ## Code
 ### Communication 
 * SPI
