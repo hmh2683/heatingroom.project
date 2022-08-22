@@ -9,7 +9,7 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 설정온도와 현재온도를 비교하여 RELAY 를 제어하고 설정온도를 유지하고 관리한다.  
  
 ## Microcontroller
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="400px" height="400px"></a> 
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="300px" height="300px"></a> 
 * Part : STM32F103C8T6
 * Manufacturer : ST-Microelectronics
 * Core : Arm Cortex-M3
@@ -46,7 +46,7 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
   * Baud Rate : 115200 Bits/s
   * Word Length : 8 Bit
 ### Clock
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/pin.png" width="400px" height="400px"></a> 
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clockn.png" width="600px" height="400px"></a> 
 
 ## Code
 ### Communication 
