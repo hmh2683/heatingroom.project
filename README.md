@@ -22,7 +22,7 @@ STM32 MCU에서 센서의 온도정보를 호출하여 현재온도를 FND 모�
 
 ### Communication 
 * SPI
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/spi_communication.png" width="300px" height="300px"></a> 
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/spi_communication .png" width="400px" height="300px"></a> 
 * I2C 
 * UART
 * ONEWIRE
