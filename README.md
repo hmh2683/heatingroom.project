@@ -1,4 +1,4 @@
-## 난방실 온도제어 시스템
+## Heating room temperature control system
 * 개발기간 : 2022.03-2022.08 (6개월)
 * 개발인원 : 1명 (개인 프로젝트)
 * 개발환경 : STM32CubeIDE 1.9.0
