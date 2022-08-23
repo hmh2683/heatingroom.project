@@ -135,7 +135,7 @@ inline uint8_t OneWire_Reset(OneWire_t *OneWireStruct) {
 	return i;
 }
 ```
-*
+* 슬레이브 장치에게 8 bit 명령어 정보를 보낸다. 
 ```C
 inline void OneWire_WriteBit(OneWire_t *OneWireStruct, uint8_t bit) {
 	if (bit) {
@@ -152,7 +152,6 @@ inline void OneWire_WriteBit(OneWire_t *OneWireStruct, uint8_t bit) {
 		ONEWIRE_INPUT(OneWireStruct);
 	} else {
 		/* Set line low */
-		busy = 1;
 		ONEWIRE_LOW(OneWireStruct);
 		ONEWIRE_OUTPUT(OneWireStruct);
 		ONEWIRE_DELAY(65);
@@ -166,7 +165,9 @@ inline void OneWire_WriteBit(OneWire_t *OneWireStruct, uint8_t bit) {
 	}
 }
 ```
-*
+* After designating the output mode, it is delayed by 2us in the LOW state 
+* After delaying by 10us in input mode, read 1 bit and return the read bit value
+* Since only one data line is used, transmission and reception cannot be performed at the same time
 ```C
 inline uint8_t OneWire_ReadBit(OneWire_t *OneWireStruct) {
 	uint8_t bit = 0;
