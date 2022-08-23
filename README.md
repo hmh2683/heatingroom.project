@@ -1,9 +1,9 @@
 # Heating room temperature control system
-* 개발기간 : 2022.03-2022.08 (6개월)
-* 개발인원 : 1명 (개인 프로젝트)
-* 개발환경 : STM32CubeIDE 1.9.0
-* 개발언어 : C
-* 개발목표  
+* Period : 2022.03-2022.08 (6 months)
+* Personnel : 1 person
+* Development environment: STM32CubeIDE 1.9.0
+* Development language : C
+* Development goals  
   * The current temperature is displayed on the FND module by calling the temperature information of the sensor from the STM32
   * Select the set temperature through 3 buttons and OLED module, and display status information of relay through OLED module
   * Control relay by comparing set temperature with current temperature and maintain and manage set temperature
