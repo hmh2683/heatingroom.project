@@ -45,7 +45,7 @@
 * USART1
   * Baud Rate : 115200 Bits/s
   * Word Length : 8 Bit
-## Clock Configuration
+### Clock Configuration
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="1000px" height="400px"></a> 
 
 ## Code
