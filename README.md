@@ -51,12 +51,13 @@
 ## Code
 ### Communication 
 * SPI
-* I2C 
-* UART
-* ONEWIRE
 ```javascript 
 function test() { 
  console.log("hello world!"); 
 } 
 ```
+* I2C 
+* UART
+* ONEWIRE
+
 
