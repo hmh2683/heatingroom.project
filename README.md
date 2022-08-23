@@ -51,9 +51,9 @@
 ## Code
 ### Communication 
 * SPI
+  * Create the SPI function directly in software
+  * Controls the clock by 1 bit from MSB
 ```C
-// 소프트웨어적으로 SPI 기능을 직접 만든다.
-// MSB 부터 1Bit 씩 Clock을 제어한다. 
 void send(uint8_t X) {
 	for (int i = 8; i >= 1; i--) {
 		if (X & 0x80) {
