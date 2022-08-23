@@ -109,8 +109,87 @@ int _write(int file, char *p, int len) {
 }
 ```
 #### 4. ONEWIRE
+*
+```C
+inline uint8_t OneWire_Reset(OneWire_t *OneWireStruct) {
+	uint8_t i;
 
+	/* Line low, and wait 480us */
+	ONEWIRE_LOW(OneWireStruct);
+	ONEWIRE_OUTPUT(OneWireStruct);
+	ONEWIRE_DELAY(480);
+	ONEWIRE_DELAY(20);
+	
+	/* Release line and wait for 70us */
+	ONEWIRE_INPUT(OneWireStruct);
+	ONEWIRE_DELAY(70);
+	/* Check bit value */
+	i = HAL_GPIO_ReadPin(OneWireStruct->GPIOx, OneWireStruct->GPIO_Pin);
+	
+	/* Delay for 410 us */
+	ONEWIRE_DELAY(410);
+	
+	/* Return value of presence pulse, 0 = OK, 1 = ERROR */
+	return i;
+}
+```
+*
+```C
+inline void OneWire_WriteBit(OneWire_t *OneWireStruct, uint8_t bit) {
+	if (bit) {
+		/* Set line low */
+		ONEWIRE_LOW(OneWireStruct);
+		ONEWIRE_OUTPUT(OneWireStruct);
+		ONEWIRE_DELAY(10);
 
+		/* Bit high */
+		ONEWIRE_INPUT(OneWireStruct);
+	
+		/* Wait for 55 us and release the line */
+		ONEWIRE_DELAY(55);
+		ONEWIRE_INPUT(OneWireStruct);
+	} else {
+		/* Set line low */
+		busy = 1;
+		ONEWIRE_LOW(OneWireStruct);
+		ONEWIRE_OUTPUT(OneWireStruct);
+		ONEWIRE_DELAY(65);
+
+		/* Bit high */
+		ONEWIRE_INPUT(OneWireStruct);
+		
+		/* Wait for 5 us and release the line */
+		ONEWIRE_DELAY(5);
+		ONEWIRE_INPUT(OneWireStruct);
+	}
+}
+```
+*
+```C
+inline uint8_t OneWire_ReadBit(OneWire_t *OneWireStruct) {
+	uint8_t bit = 0;
+
+	/* Line low */
+	ONEWIRE_LOW(OneWireStruct);
+	ONEWIRE_OUTPUT(OneWireStruct);
+	ONEWIRE_DELAY(2);
+	/* Release line */
+	ONEWIRE_INPUT(OneWireStruct);
+	ONEWIRE_DELAY(10);
+
+	/* Read line value */
+	if (HAL_GPIO_ReadPin(OneWireStruct->GPIOx, OneWireStruct->GPIO_Pin)) {
+		/* Bit is HIGH */
+		bit = 1;
+	}
+
+	/* Wait 50us to complete 60us period */
+	ONEWIRE_DELAY(50);
+
+	/* Return bit value */
+	return bit;
+}
+```
 <br/> <br/>
 
 ## Result
