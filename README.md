@@ -101,4 +101,4 @@ int _write(int file, char *p, int len) {
 ### Main
 
 ## Result
-[![IU(아이유) _ Into the I-LAND](http://img.youtube.com/vi/CozpDULafgo/0.jpg)](https://youtu.be/CozpDULafgo?t=0s) 
+(http://img.youtube.com/vi/CozpDULafgo/0.jpg)](https://youtu.be/CozpDULafgo?t=0s) 
