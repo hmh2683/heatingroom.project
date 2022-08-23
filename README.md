@@ -89,6 +89,7 @@ void sendPort(uint8_t X, uint8_t port) {
 
 #### 2. I2C 
 <br/> <br/>
+#### 4. ONEWIRE
 #### 3. UART
 * UART handler and transfer function provided by STM32 are used
 * It is used to implement the printf function
