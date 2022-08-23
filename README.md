@@ -50,7 +50,7 @@
 
 ## Code
 ### Communication 
-#### SPI  
+#### 1. SPI  
 * Create the SPI function directly in software   
 * Controls the clock by 1 bit from MSB
 ```C
