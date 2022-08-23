@@ -67,13 +67,14 @@ void send(uint8_t X) {
 	}
 }
 ```
+STM32에서 제공되는 SPI 기능을 사용한다.
 ```C
-// STM32에서 제공되는 SPI 기능을 사용한다.
 void send(uint8_t X) {
  HAL_SPI_Transmit(m_hspi, &X, 1, 100);
 }
-
-// RCLK을 LOW 로 내리고, 다시 HIGH 올려서 16Bit 정보를 보낸다.
+```
+RCLK을 LOW 로 내리고, 다시 HIGH 올려서 16Bit 정보를 보낸다.
+```C
 void sendPort(uint8_t X, uint8_t port) {
 	send(X);
 	send(port);
