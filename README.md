@@ -7,7 +7,7 @@
   * The current temperature is displayed on the FND module by calling the temperature information of the sensor from the STM32
   * Select the set temperature through 3 buttons and OLED module, and display status information of relay through OLED module
   * Control relay by comparing set temperature with current temperature and maintain and manage set temperature
- 
+<br/> 
 ## Microcontroller
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="350px" height="350px"></a> 
 * Part : STM32F103C8T6
