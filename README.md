@@ -100,3 +100,5 @@ int _write(int file, char *p, int len) {
 
 ### Main
 
+## Result
+{% include video id="CozpDULafgo" provider="youtube" %}
