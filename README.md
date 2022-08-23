@@ -52,8 +52,8 @@
 ### Communication 
 * SPI
 ```C
-/* 소프트웨어적으로 SPI 기능을 직접 만든다.
-MSB 부터 1Bit 씩 Clock을 제어한다. */
+// 소프트웨어적으로 SPI 기능을 직접 만든다.
+// MSB 부터 1Bit 씩 Clock을 제어한다. 
 void send(uint8_t X) {
 	for (int i = 8; i >= 1; i--) {
 		if (X & 0x80) {
@@ -81,14 +81,19 @@ void sendPort(uint8_t X, uint8_t port) {
 	HAL_GPIO_WritePin(PB14_FND_RCLK_GPIO_Port, PB14_FND_RCLK_Pin, HIGH);
 }
 ```
-
-```javascript 
-function test() { 
- console.log("hello world!"); 
-} 
-```
 * I2C 
 * UART
+```C
+// STM32에서 제공되는 UART 핸들러와 전송함수를 사용한다.
+// printf() 함수 구현을 위해 사용한다.
+extern UART_HandleTypeDef *huart1;
+
+int _write(int file, char *p, int len) {
+	HAL_UART_Transmit(&huart1, (uint8_t*) p, len, 10);
+	return len;
+}
+```
 * ONEWIRE
+
 
 
