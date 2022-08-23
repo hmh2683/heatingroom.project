@@ -1,7 +1,7 @@
 # Heating room temperature control system
 * Period : 2022.03-2022.08 (6 months)
 * Personnel : 1 person
-* Development environment: STM32CubeIDE 1.9.0
+* Development environment : STM32CubeIDE 1.9.0
 * Development language : C
 * Development goals  
   * The current temperature is displayed on the FND module by calling the temperature information of the sensor from the STM32
