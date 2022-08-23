@@ -52,10 +52,19 @@
 ### Communication 
 * SPI
 ```C
+// STM32에서 제공되는 SPI 기능을 사용한다.
+void send(uint8_t X) {
+ HAL_SPI_Transmit(m_hspi, &X, 1, 100);
+ }
+```
+
+```C
+/* 소프트웨어적으로 SPI 기능을 직접 만든다.
+MSB 부터 1Bit 씩 Clock을 제어한다. */
 void send(uint8_t X) {
 	for (int i = 8; i >= 1; i--) {
 		if (X & 0x80) {
-			HAL_GPIO_WritePin(FND_DIO_GPIO_Port, FND_DIO_Pin, HIGH);
+			HAL_GPIO_WritePin(FND_DIO_GPIO_Port, FND_DIO_Pin, HIGH); 
 		} else {
 			HAL_GPIO_WritePin(FND_DIO_GPIO_Port, FND_DIO_Pin, LOW);
 		}
@@ -65,9 +74,7 @@ void send(uint8_t X) {
 	}
 }
 ```
-```C
-HAL_SPI_Transmit(m_hspi, &X, 1, 100);
-```
+
 ```javascript 
 function test() { 
  console.log("hello world!"); 
