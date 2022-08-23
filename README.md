@@ -50,8 +50,8 @@
 
 ## Code
 ### Communication 
-* SPI
-Create the SPI function directly in software
+* SPI  
+Create the SPI function directly in software  
 Controls the clock by 1 bit from MSB
 ```C
 void send(uint8_t X) {
