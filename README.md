@@ -67,13 +67,13 @@ void send(uint8_t X) {
 	}
 }
 ```
-* STM32에서 제공되는 SPI 기능을 사용한다.
+* Use the SPI function provided by STM32
 ```C
 void send(uint8_t X) {
  HAL_SPI_Transmit(m_hspi, &X, 1, 100);
 }
 ```
-* RCLK을 LOW 로 내리고, 다시 HIGH 올려서 16Bit 정보를 보낸다.
+* Lower RCLK to LOW and raise it to HIGH again to send 16-bit information
 ```C
 void sendPort(uint8_t X, uint8_t port) {
 	send(X);
@@ -82,11 +82,13 @@ void sendPort(uint8_t X, uint8_t port) {
 	HAL_GPIO_WritePin(PB14_FND_RCLK_GPIO_Port, PB14_FND_RCLK_Pin, HIGH);
 }
 ```
-* I2C 
-* UART
+
+#### 2. I2C 
+
+#### 3. UART
+* UART handler and transfer function provided by STM32 are used
+* It is used to implement the printf function
 ```C
-// STM32에서 제공되는 UART 핸들러와 전송함수를 사용한다.
-// printf() 함수 구현을 위해 사용한다.
 extern UART_HandleTypeDef *huart1;
 
 int _write(int file, char *p, int len) {
@@ -94,7 +96,7 @@ int _write(int file, char *p, int len) {
 	return len;
 }
 ```
-* ONEWIRE
+#### 4. ONEWIRE
 
 
 
