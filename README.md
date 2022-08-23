@@ -7,6 +7,7 @@
   * The current temperature is displayed on the FND module by calling the temperature information of the sensor from the STM32
   * Select the set temperature through 3 buttons and OLED module, and display status information of relay through OLED module
   * Control relay by comparing set temperature with current temperature and maintain and manage set temperature
+<br/> <br/>
 
 ## Microcontroller
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="350px" height="350px"></a> 
@@ -15,7 +16,7 @@
 * Core : Arm Cortex-M3
 * Clock Speed(MAX) : 72MHz
 * Package : LQFP 48 pin
-
+<br/> <br/>
 ## Pinout & Configuration
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/pin.png" width="400px" height="400px"></a>
 
@@ -51,7 +52,7 @@
 
 ### Clock Configuration
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="1000px" height="400px"></a> 
-
+<br/> <br/>
 ## Code
 ### Communication 
 #### 1. SPI  
