@@ -7,7 +7,7 @@
   * The current temperature is displayed on the FND module by calling the temperature information of the sensor from the STM32
   * Select the set temperature through 3 buttons and OLED module, and display status information of relay through OLED module
   * Control relay by comparing set temperature with current temperature and maintain and manage set temperature
-<br/> 
+
 ## Microcontroller
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="350px" height="350px"></a> 
 * Part : STM32F103C8T6
@@ -18,6 +18,7 @@
 
 ## Pinout & Configuration
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/pin.png" width="400px" height="400px"></a>
+
 ### System Core
 * GPIO -> INPUT -> PB0_TEMP_UP, PB1_TEMP_SET, PB2_TEMP_DOWN, PB12_START_SW
 * GPIO -> OUTPUT -> PA3_TEMP_DATA, PB5_RELAY, PB6_BUTTON_LED, PB7_START_LED, PB14_FND_RCLK
@@ -25,6 +26,7 @@
 * I2C -> PB10_I2C2_SCL, PB11_I2C2_SDA
 * SYS -> PA13_JTMS-SWDIO, PA14_SYS_JTCK-SWCLK
 * RCC -> PC14_RCC_OSC32_IN, PC15_RCC_OSC32_OUT, PD0_RCC_OSC_IN, PD1_RCC_OSC_OUT
+
 ### Timers
 * TIM2 -> Temperature sensor
   * Prescaler : 71
@@ -32,6 +34,7 @@
 * TIM3 -> FND
   * Prescaler : 71
   * Counter Period : 99
+
 ### Connectivity
 * SPI2
   * Data Size : 8bit
@@ -45,6 +48,7 @@
 * USART1
   * Baud Rate : 115200 Bits/s
   * Word Length : 8 Bit
+
 ### Clock Configuration
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="1000px" height="400px"></a> 
 
@@ -84,7 +88,7 @@ void sendPort(uint8_t X, uint8_t port) {
 ```
 
 #### 2. I2C 
-
+<br/>
 #### 3. UART
 * UART handler and transfer function provided by STM32 are used
 * It is used to implement the printf function
