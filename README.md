@@ -80,8 +80,10 @@ void send(uint8_t X) {
 ```
 * Use the SPI function provided by STM32
 ```C
+static SPI_HandleTypeDef *fhspi;
+
 void send(uint8_t X) {
- HAL_SPI_Transmit(m_hspi, &X, 1, 100);
+ 	HAL_SPI_Transmit(fhspi, &X, 1, 100);
 }
 ```
 * Lower RCLK to LOW and raise it to HIGH again to send 16-bit information
