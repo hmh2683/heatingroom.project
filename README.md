@@ -111,7 +111,7 @@ int _write(int file, char *p, int len) {
 }
 ```
 #### 4. ONEWIRE
-*
+* initialization timing
 ```C
 inline uint8_t OneWire_Reset(OneWire_t *OneWireStruct) {
 	uint8_t i;
@@ -135,61 +135,45 @@ inline uint8_t OneWire_Reset(OneWire_t *OneWireStruct) {
 	return i;
 }
 ```
-* 슬레이브 장치에게 8 bit 명령어 정보를 보낸다. 
+* Send 8 bit command information to slave device
 ```C
 inline void OneWire_WriteBit(OneWire_t *OneWireStruct, uint8_t bit) {
 	if (bit) {
-		/* Set line low */
 		ONEWIRE_LOW(OneWireStruct);
 		ONEWIRE_OUTPUT(OneWireStruct);
 		ONEWIRE_DELAY(10);
 
-		/* Bit high */
-		ONEWIRE_INPUT(OneWireStruct);
-	
-		/* Wait for 55 us and release the line */
+		ONEWIRE_INPUT(OneWireStruct);	
 		ONEWIRE_DELAY(55);
 		ONEWIRE_INPUT(OneWireStruct);
 	} else {
-		/* Set line low */
 		ONEWIRE_LOW(OneWireStruct);
 		ONEWIRE_OUTPUT(OneWireStruct);
 		ONEWIRE_DELAY(65);
 
-		/* Bit high */
 		ONEWIRE_INPUT(OneWireStruct);
-		
-		/* Wait for 5 us and release the line */
 		ONEWIRE_DELAY(5);
 		ONEWIRE_INPUT(OneWireStruct);
 	}
 }
 ```
-* After designating the output mode, it is delayed by 2us in the LOW state 
-* After delaying by 10us in input mode, read 1 bit and return the read bit value
-* Since only one data line is used, transmission and reception cannot be performed at the same time
+* 읽은 비트가 LOW라면 온도 계산이 되지 않은 것이다.
 ```C
 inline uint8_t OneWire_ReadBit(OneWire_t *OneWireStruct) {
 	uint8_t bit = 0;
 
-	/* Line low */
 	ONEWIRE_LOW(OneWireStruct);
 	ONEWIRE_OUTPUT(OneWireStruct);
 	ONEWIRE_DELAY(2);
-	/* Release line */
+
 	ONEWIRE_INPUT(OneWireStruct);
 	ONEWIRE_DELAY(10);
-
-	/* Read line value */
+	
 	if (HAL_GPIO_ReadPin(OneWireStruct->GPIOx, OneWireStruct->GPIO_Pin)) {
-		/* Bit is HIGH */
 		bit = 1;
 	}
-
-	/* Wait 50us to complete 60us period */
 	ONEWIRE_DELAY(50);
 
-	/* Return bit value */
 	return bit;
 }
 ```
