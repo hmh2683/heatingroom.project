@@ -7,6 +7,7 @@
   * The current temperature is displayed on the FND module by calling the temperature information of the sensor from the STM32
   * Select the set temperature through 3 buttons and OLED module, and display status information of relay through OLED module
   * Control relay by comparing set temperature with current temperature and maintain and manage set temperature
+
 <br/> <br/>
 
 ## Microcontroller
@@ -16,7 +17,9 @@
 * Core : Arm Cortex-M3
 * Clock Speed(MAX) : 72MHz
 * Package : LQFP 48 pin
+
 <br/> <br/>
+
 ## Pinout & Configuration
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/pin.png" width="400px" height="400px"></a>
 
@@ -52,8 +55,11 @@
 
 ### Clock Configuration
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="1000px" height="400px"></a> 
+
 <br/> <br/>
+
 ## Code
+### Main
 ### Communication 
 #### 1. SPI  
 * Create the SPI function directly in software   
@@ -89,8 +95,8 @@ void sendPort(uint8_t X, uint8_t port) {
 ```
 
 #### 2. I2C 
-<br/> <br/>
-#### 4. ONEWIRE
+
+
 #### 3. UART
 * UART handler and transfer function provided by STM32 are used
 * It is used to implement the printf function
@@ -104,7 +110,8 @@ int _write(int file, char *p, int len) {
 ```
 #### 4. ONEWIRE
 
-### Main
+
 <br/> <br/>
+
 ## Result
 [![Heating room temperature control system](http://img.youtube.com/vi/CozpDULafgo/0.jpg)](https://youtu.be/CozpDULafgo?t=0s) 
