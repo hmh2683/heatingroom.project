@@ -112,26 +112,21 @@ int _write(int file, char *p, int len) {
 ```
 #### 4. ONEWIRE
 * initialization timing
+* Returns the read bit value, 0 = OK, 1 = ERROR
 ```C
 inline uint8_t OneWire_Reset(OneWire_t *OneWireStruct) {
 	uint8_t i;
 
-	/* Line low, and wait 480us */
 	ONEWIRE_LOW(OneWireStruct);
 	ONEWIRE_OUTPUT(OneWireStruct);
 	ONEWIRE_DELAY(480);
 	ONEWIRE_DELAY(20);
 	
-	/* Release line and wait for 70us */
 	ONEWIRE_INPUT(OneWireStruct);
 	ONEWIRE_DELAY(70);
-	/* Check bit value */
 	i = HAL_GPIO_ReadPin(OneWireStruct->GPIOx, OneWireStruct->GPIO_Pin);
-	
-	/* Delay for 410 us */
 	ONEWIRE_DELAY(410);
 	
-	/* Return value of presence pulse, 0 = OK, 1 = ERROR */
 	return i;
 }
 ```
@@ -142,7 +137,6 @@ inline void OneWire_WriteBit(OneWire_t *OneWireStruct, uint8_t bit) {
 		ONEWIRE_LOW(OneWireStruct);
 		ONEWIRE_OUTPUT(OneWireStruct);
 		ONEWIRE_DELAY(10);
-
 		ONEWIRE_INPUT(OneWireStruct);	
 		ONEWIRE_DELAY(55);
 		ONEWIRE_INPUT(OneWireStruct);
@@ -150,14 +144,13 @@ inline void OneWire_WriteBit(OneWire_t *OneWireStruct, uint8_t bit) {
 		ONEWIRE_LOW(OneWireStruct);
 		ONEWIRE_OUTPUT(OneWireStruct);
 		ONEWIRE_DELAY(65);
-
 		ONEWIRE_INPUT(OneWireStruct);
 		ONEWIRE_DELAY(5);
 		ONEWIRE_INPUT(OneWireStruct);
 	}
 }
 ```
-* 읽은 비트가 LOW라면 온도 계산이 되지 않은 것이다.
+* If read bit is low, then device is not finished yet with calculation temperature 
 ```C
 inline uint8_t OneWire_ReadBit(OneWire_t *OneWireStruct) {
 	uint8_t bit = 0;
@@ -165,16 +158,24 @@ inline uint8_t OneWire_ReadBit(OneWire_t *OneWireStruct) {
 	ONEWIRE_LOW(OneWireStruct);
 	ONEWIRE_OUTPUT(OneWireStruct);
 	ONEWIRE_DELAY(2);
-
 	ONEWIRE_INPUT(OneWireStruct);
-	ONEWIRE_DELAY(10);
-	
+	ONEWIRE_DELAY(10);	
 	if (HAL_GPIO_ReadPin(OneWireStruct->GPIOx, OneWireStruct->GPIO_Pin)) {
 		bit = 1;
 	}
 	ONEWIRE_DELAY(50);
 
 	return bit;
+}
+```
+```C
+void OneWire_SelectWithPointer(OneWire_t *OneWireStruct, uint8_t *ROM) {
+	uint8_t i;
+	OneWire_WriteByte(OneWireStruct, ONEWIRE_CMD_MATCHROM);
+
+	for (i = 0; i < 8; i++) {
+		OneWire_WriteByte(OneWireStruct, *(ROM + i));
+	}
 }
 ```
 <br/> <br/>
