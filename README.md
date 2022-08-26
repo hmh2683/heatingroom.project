@@ -84,9 +84,10 @@ while (1) {
 	}
 }
 ```
+
 ### Interrupt
 * 인터럽트가 걸렸을 때, 버튼의 상태 값을 변환시킨다.
-* 현재시간부터 카운터를 샐 수 있게 HAL_GetTick() 함수를 사용한다. 
+* HAL_GetTick() 함수를 사용 
 ```C
 void EXTI0_IRQHandler(void) {
   HAL_GPIO_EXTI_IRQHandler(PB0_TEMP_UP_BUTTON_Pin);
@@ -97,7 +98,8 @@ void EXTI0_IRQHandler(void) {
 	before_time = HAL_GetTick();
 }
 ```
-*
+* 
+* Check the initialization status and busy status, and if true, get the current temperature value and display it on the FND.
 ```C
 void TIM3_IRQHandler(void) {
   HAL_TIM_IRQHandler(&htim3);
@@ -106,9 +108,8 @@ void TIM3_IRQHandler(void) {
 		digitTemp((int)(getCurrentTemp() * 10));
 	}
 }
-
-
 ```
+
 ### Communication 
 #### 1. SPI  
 * Create the SPI function directly in software.
@@ -146,7 +147,14 @@ void sendPort(uint8_t X, uint8_t port) {
 ```
 
 #### 2. I2C 
+*
+```C
 
+```
+*
+```C
+
+```
 
 #### 3. UART
 * UART handler and transfer function provided by STM32 are used.
