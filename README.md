@@ -32,7 +32,7 @@
 * RCC -> PC14_RCC_OSC32_IN, PC15_RCC_OSC32_OUT, PD0_RCC_OSC_IN, PD1_RCC_OSC_OUT
 
 ### Timers
-* TIM2 -> Temperature sensor
+* TIM2 -> TEMPSENSOR
   * Prescaler : 71
   * Counter Period : 65535
 * TIM3 -> FND
@@ -40,19 +40,19 @@
   * Counter Period : 99
 
 ### Connectivity
-* SPI2
+* SPI2 -> FND
   * Data Size : 8bit
   * First Bit : MSB
   * Prescaler : 16
   * Clock Polarity : High
   * Clock Phase : 1 Edge
-* I2C2
+* I2C2 -> OLED
   * Speed Mode : Fast Mode
   * Clock Speed : 400000 Hz
-* USART1
+* USART1 -> FTDI
   * Baud Rate : 115200 Bits/s
   * Word Length : 8 Bit
-
+* ONEWIRE -> SENSOR
 ### Clock Configuration
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="1000px" height="400px"></a> 
 
@@ -65,23 +65,50 @@
 * Start temperature conversion and get temperature value
 * If the switch is on, the relay is controlled according to the temperature value. If the switch is off, the relay is turned off regardless of the temperature value.
 ```C
-checkButton();
-checkStartSw();
+while (1) {
+	checkButton();
+	checkStartSw();
 
-if (!isConverted()) 
-	startConvert();
-checkConvert();
-if (!isConverted()) {
-	temperature = getTemp();
-	if (getStartSw() == ON_t) {
-		relayControl(temperature);
-	} else { 
-		if (getRelayState() == ON_t) 
-			relayOnOff(OFF_t);
+	if (!isConverted()) 
+		startConvert();
+	
+	checkConvert();
+	if (!isConverted()) {
+		temperature = getTemp();
+		if (getStartSw() == ON_t) {
+			relayControl(temperature);
+		} else {
+			if (getRelayState() == ON_t) 
+				relayOnOff(OFF_t);
+		}
 	}
 }
-	
+```
+### Interrupt
+* 인터럽트가 걸렸을 때, 버튼의 상태 값을 변환시킨다.
+* 현재시간부터 카운터를 샐 수 있게 HAL_GetTick() 함수를 사용한다. 
+```C
+void EXTI0_IRQHandler(void) {
+  HAL_GPIO_EXTI_IRQHandler(PB0_TEMP_UP_BUTTON_Pin);
 
+	if (HAL_GetTick() - before_time > CLICK_TIME) {
+		button_up = 1;
+	}
+	before_time = HAL_GetTick();
+}
+```
+*
+```C
+void TIM3_IRQHandler(void) {
+  HAL_TIM_IRQHandler(&htim3);
+  
+	if (isTempSensorInit() && !isBusy()) {
+		digitTemp((int)(getCurrentTemp() * 10));
+	}
+}
+
+
+```
 ### Communication 
 #### 1. SPI  
 * Create the SPI function directly in software   
