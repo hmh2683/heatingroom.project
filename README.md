@@ -86,8 +86,7 @@ while (1) {
 ```
 
 ### Interrupt
-* 인터럽트가 걸렸을 때, 버튼의 상태 값을 변환시킨다.
-* HAL_GetTick() 함수를 사용 
+* When an interrupt occurs, the if statement is executed by comparing the return value of the HAL_GetTick function with the CLICK_TIME value.
 ```C
 void EXTI0_IRQHandler(void) {
   HAL_GPIO_EXTI_IRQHandler(PB0_TEMP_UP_BUTTON_Pin);
