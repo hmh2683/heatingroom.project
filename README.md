@@ -98,7 +98,7 @@ void EXTI0_IRQHandler(void) {
 	before_time = HAL_GetTick();
 }
 ```
-* 
+* Activate RCC mode and set TIM3 prescaler: 72 period: 100 to generate an interrupt every 100us.
 * Check the initialization status and busy status, and if true, get the current temperature value and display it on the FND.
 ```C
 void TIM3_IRQHandler(void) {
