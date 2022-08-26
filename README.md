@@ -60,6 +60,28 @@
 
 ## Code review
 ### Main
+* The if statement is executed according to the button variable that is interrupted
+* LED is controlled according to the state of the start switch
+* Start temperature conversion and get temperature value
+* If the switch is on, the relay is controlled according to the temperature value. If the switch is off, the relay is turned off regardless of the temperature value.
+```C
+checkButton();
+checkStartSw();
+
+if (!isConverted()) 
+	startConvert();
+checkConvert();
+if (!isConverted()) {
+	temperature = getTemp();
+	if (getStartSw() == ON_t) {
+		relayControl(temperature);
+	} else { 
+		if (getRelayState() == ON_t) 
+			relayOnOff(OFF_t);
+	}
+}
+	
+
 ### Communication 
 #### 1. SPI  
 * Create the SPI function directly in software   
@@ -111,7 +133,7 @@ int _write(int file, char *p, int len) {
 }
 ```
 #### 4. ONEWIRE
-* If the read bit value is low, initialization is successful.
+* If read bit value is low, initialization is successful
 ```C
 inline uint8_t OneWire_Reset(OneWire_t *OneWireStruct) {
 	uint8_t i;
