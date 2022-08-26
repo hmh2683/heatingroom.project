@@ -54,6 +54,7 @@
   * Word Length : 8 Bit
 * ONEWIRE -> SENSOR
 ### Clock Configuration
+* A crystal resonator is used to generate a clock frequency of 72MHz.
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="1000px" height="400px"></a> 
 
 <br/> <br/>
