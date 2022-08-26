@@ -111,8 +111,7 @@ int _write(int file, char *p, int len) {
 }
 ```
 #### 4. ONEWIRE
-* initialization timing
-* Returns the read bit value, 0 = OK, 1 = ERROR
+* If the read bit value is low, initialization is successful.
 ```C
 inline uint8_t OneWire_Reset(OneWire_t *OneWireStruct) {
 	uint8_t i;
@@ -121,7 +120,6 @@ inline uint8_t OneWire_Reset(OneWire_t *OneWireStruct) {
 	ONEWIRE_OUTPUT(OneWireStruct);
 	ONEWIRE_DELAY(480);
 	ONEWIRE_DELAY(20);
-	
 	ONEWIRE_INPUT(OneWireStruct);
 	ONEWIRE_DELAY(70);
 	i = HAL_GPIO_ReadPin(OneWireStruct->GPIOx, OneWireStruct->GPIO_Pin);
@@ -130,7 +128,7 @@ inline uint8_t OneWire_Reset(OneWire_t *OneWireStruct) {
 	return i;
 }
 ```
-* Send 8 bit command information to slave device
+* Send command information to slave device
 ```C
 inline void OneWire_WriteBit(OneWire_t *OneWireStruct, uint8_t bit) {
 	if (bit) {
@@ -168,11 +166,12 @@ inline uint8_t OneWire_ReadBit(OneWire_t *OneWireStruct) {
 	return bit;
 }
 ```
+* Select ROM number
 ```C
 void OneWire_SelectWithPointer(OneWire_t *OneWireStruct, uint8_t *ROM) {
 	uint8_t i;
+	
 	OneWire_WriteByte(OneWireStruct, ONEWIRE_CMD_MATCHROM);
-
 	for (i = 0; i < 8; i++) {
 		OneWire_WriteByte(OneWireStruct, *(ROM + i));
 	}
