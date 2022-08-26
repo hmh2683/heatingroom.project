@@ -4,9 +4,9 @@
 * Development environment : STM32CubeIDE 1.9.0
 * Development language : C
 * Development goals  
-  * The current temperature is displayed on the FND module by calling the temperature information of the sensor from the STM32
-  * Select the set temperature through 3 buttons and OLED module, and display status information of relay through OLED module
-  * Control relay by comparing set temperature with current temperature and maintain and manage set temperature
+  * The current temperature is displayed on the FND module by calling the temperature information of the sensor from the STM32.
+  * Select the set temperature through 3 buttons and OLED module, and display status information of relay through OLED module.
+  * Control relay by comparing set temperature with current temperature and maintain and manage set temperature.
 
 <br/> <br/>
 
@@ -60,9 +60,9 @@
 
 ## Code review
 ### Main
-* The if statement is executed according to the button variable that is interrupted
-* LED is controlled according to the state of the start switch
-* Start temperature conversion and get temperature value
+* The if statement is executed according to the button variable that is interrupted.
+* LED is controlled according to the state of the start switch.
+* Start temperature conversion and get temperature value.
 * If the switch is on, the relay is controlled according to the temperature value. If the switch is off, the relay is turned off regardless of the temperature value.
 ```C
 while (1) {
@@ -111,8 +111,8 @@ void TIM3_IRQHandler(void) {
 ```
 ### Communication 
 #### 1. SPI  
-* Create the SPI function directly in software   
-* Controls the clock by 1 bit from MSB
+* Create the SPI function directly in software.
+* Controls the clock by 1 bit from MSB.
 ```C
 void send(uint8_t X) {
 	for (int i = 8; i >= 1; i--) {
@@ -127,7 +127,7 @@ void send(uint8_t X) {
 	}
 }
 ```
-* Use the SPI function provided by STM32
+* Use the SPI function provided by STM32.
 ```C
 static SPI_HandleTypeDef *fhspi;
 
@@ -135,7 +135,7 @@ void send(uint8_t X) {
  	HAL_SPI_Transmit(fhspi, &X, 1, 100);
 }
 ```
-* Lower RCLK to LOW and raise it to HIGH again to send 16-bit information
+* Lower RCLK to LOW and raise it to HIGH again to send 16-bit information.
 ```C
 void sendPort(uint8_t X, uint8_t port) {
 	send(X);
@@ -149,8 +149,8 @@ void sendPort(uint8_t X, uint8_t port) {
 
 
 #### 3. UART
-* UART handler and transfer function provided by STM32 are used
-* It is used to implement the printf function
+* UART handler and transfer function provided by STM32 are used.
+* It is used to implement the printf function.
 ```C
 extern UART_HandleTypeDef *huart1;
 
@@ -160,7 +160,7 @@ int _write(int file, char *p, int len) {
 }
 ```
 #### 4. ONEWIRE
-* If read bit value is low, initialization is successful
+* If read bit value is low, initialization is successful.
 ```C
 inline uint8_t OneWire_Reset(OneWire_t *OneWireStruct) {
 	uint8_t i;
@@ -177,7 +177,7 @@ inline uint8_t OneWire_Reset(OneWire_t *OneWireStruct) {
 	return i;
 }
 ```
-* Send command information to slave device
+* Send command information to slave device.
 ```C
 inline void OneWire_WriteBit(OneWire_t *OneWireStruct, uint8_t bit) {
 	if (bit) {
@@ -197,7 +197,7 @@ inline void OneWire_WriteBit(OneWire_t *OneWireStruct, uint8_t bit) {
 	}
 }
 ```
-* If read bit is low, then device is not finished yet with calculation temperature 
+* If read bit is low, then device is not finished yet with calculation temperature.
 ```C
 inline uint8_t OneWire_ReadBit(OneWire_t *OneWireStruct) {
 	uint8_t bit = 0;
@@ -215,7 +215,7 @@ inline uint8_t OneWire_ReadBit(OneWire_t *OneWireStruct) {
 	return bit;
 }
 ```
-* Select ROM number
+* Select ROM number.
 ```C
 void OneWire_SelectWithPointer(OneWire_t *OneWireStruct, uint8_t *ROM) {
 	uint8_t i;
