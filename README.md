@@ -11,7 +11,7 @@
 <br/> <br/>
 
 ## Microcontroller
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/stm32f103c8t6.png" width="350px" height="350px"></a> 
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/mcu.png" width="350px" height="350px"></a> 
 * Part : STM32F103C8T6
 * Manufacturer : ST-Microelectronics
 * Core : Arm Cortex-M3
@@ -21,7 +21,7 @@
 <br/> <br/>
 
 ## Pinout Configuration
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/pin.png" width="400px" height="400px"></a>
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/pinout.png" width="400px" height="400px"></a>
 
 ### System Core
 * GPIO -> INPUT -> PB0_TEMP_UP, PB1_TEMP_SET, PB2_TEMP_DOWN, PB12_START_SW
@@ -255,7 +255,8 @@ void OneWire_SelectWithPointer(OneWire_t *OneWireStruct, uint8_t *ROM) {
 
 ## Result
 ### Photo
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/heatingroom.jpg" width="490px" height="350px"></a>
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/result.jpg" width="500px" height="400px"></a>
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/result.jpg" width="500px" height="400px"></a>
 ### Video
 [![Heating room temperature control system](http://img.youtube.com/vi/CozpDULafgo/0.jpg)](https://youtu.be/CozpDULafgo?t=0s) 
 
