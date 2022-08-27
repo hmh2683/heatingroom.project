@@ -49,6 +49,7 @@
 * I2C2 -> OLED
   * Speed Mode : Fast Mode
   * Clock Speed : 400000 Hz
+  * Fast Mode Duty Cycle : Duty cycle Tlow/Thigh = 2
 * USART1 -> FTDI
   * Baud Rate : 115200 Bits/s
   * Word Length : 8 Bit
@@ -57,7 +58,7 @@
 <br/> <br/>
 
 ## Clock Configuration
-* It uses the crystal resonator built into the STM32 MCU to generate a clock frequency of 72MHz.
+* A clock frequency of 72 MHz is generated using the crystal resonator built into the STM32 MCU.
 <a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/clock.png" width="1000px" height="400px"></a> 
 
 <br/> <br/>
@@ -67,7 +68,7 @@
 * The if statement is executed according to the button variable that is interrupted.
 * LED is controlled according to the state of the start switch.
 * Start temperature conversion and get temperature value.
-* If the switch is on, the relay is controlled according to the temperature value. If the switch is off, the relay is turned off regardless of the temperature value.
+* When the switch is on, the relay operates according to the temperature value, and when the switch is off, the relay does not operate regardless of the temperature value.
 ```C
 while (1) {
 	checkButton();
@@ -150,18 +151,31 @@ void sendPort(uint8_t X, uint8_t port) {
 ```
 
 #### 2. I2C 
-*
+* The command registered in the command table is sent to the slave address.
+* Send in 7-bit units to control the OLED.
 ```C
-
+void ssd1306_I2C_Write(uint8_t address, uint8_t reg, uint8_t data) {
+	uint8_t dt[2];
+	dt[0] = reg;
+	dt[1] = data;
+	HAL_I2C_Master_Transmit(&hi2c2, address, dt, 2, 10);
+}
 ```
-*
+* 
 ```C
-
+void ssd1306_I2C_WriteMulti(uint8_t address, uint8_t reg, uint8_t *data, uint16_t count) {
+	uint8_t dt[256];
+	dt[0] = reg;
+	uint8_t i;
+	for (i = 0; i < count; i++)
+		dt[i + 1] = data[i];
+	HAL_I2C_Master_Transmit(&hi2c2, address, dt, count + 1, 10);
+}
 ```
 
 #### 3. UART
 * UART handler and transfer function provided by STM32 are used.
-* It is used to implement the printf function.
+* Used to implement the printf function.
 ```C
 extern UART_HandleTypeDef *huart1;
 
