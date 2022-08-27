@@ -161,7 +161,7 @@ void ssd1306_I2C_Write(uint8_t address, uint8_t reg, uint8_t data) {
 	HAL_I2C_Master_Transmit(&hi2c2, address, dt, 2, 10);
 }
 ```
-* 
+* Register 1024 bit value in slave address.
 ```C
 void ssd1306_I2C_WriteMulti(uint8_t address, uint8_t reg, uint8_t *data, uint16_t count) {
 	uint8_t dt[256];
