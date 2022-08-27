@@ -255,7 +255,7 @@ void OneWire_SelectWithPointer(OneWire_t *OneWireStruct, uint8_t *ROM) {
 
 ## Result
 ### Photo
-<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/heatingroom.jpg" width="500px" height="400px"></a>
+<a href="#"><img src="https://github.com/hmh2683/heatingroom.project/blob/main/images/heatingroom.jpg" width="490px" height="350px"></a>
 ### Video
 [![Heating room temperature control system](http://img.youtube.com/vi/CozpDULafgo/0.jpg)](https://youtu.be/CozpDULafgo?t=0s) 
 
