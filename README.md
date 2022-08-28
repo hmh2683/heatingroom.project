@@ -262,5 +262,6 @@ void OneWire_SelectWithPointer(OneWire_t *OneWireStruct, uint8_t *ROM) {
 [![Heating room temperature control system](http://img.youtube.com/vi/CozpDULafgo/0.jpg)](https://youtu.be/CozpDULafgo?t=0s) 
 
 ### Realization
-* 
-* 
+* The automatic generation of STM32CubeIDE confirmed that the pin was set up, and I was able to master how to use the interrupt and timer.
+* I was able to learn about the communication between chips such as SPI, I2C, UART, and ONEWIRE, and I was able to learn and experience the communication method by directly modifying the software implementation using open source.
+* I learned C language grammar when I was an undergraduate, but I was able to learn how to use grammar and skills for the first time in the project and learn a little more about how to interact and include them in the library.
