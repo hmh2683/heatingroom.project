@@ -2,7 +2,7 @@
 * Period : 2022.03-2022.08 (6 months)
 * Personnel : 1 person
 * Development environment : STM32CubeIDE 1.9.0
-* Development language : C C++
+* Development language : C, C++
 * Development goals  
   * The current temperature is displayed on the FND module by calling the temperature information of the sensor from the STM32.
   * Select the set temperature through 3 buttons and OLED module, and display status information of relay through OLED module.
