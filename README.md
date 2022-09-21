@@ -132,7 +132,7 @@ void send(uint8_t X) {
 	}
 }
 ```
-* Use the SPI function provided by STM32.
+* It uses the SPI function provided by STM32.
 ```C
 static SPI_HandleTypeDef *fhspi;
 
