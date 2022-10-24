@@ -63,7 +63,7 @@
 
 <br/> <br/>
 
-## Code review
+## Code Review
 ### Main
 * The if statement is executed according to the button variable that is interrupted.
 * LED is controlled according to the state of the start switch.
